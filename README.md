@@ -1,5 +1,7 @@
 # aai4r-Enhancer-for-Crowd-Counting
 
+## E-PFSNet: Image enhancer (E)+ Pyramid feature selection network (PFSNet)
+
 ## Installation
 * Clone this repo into a directory
 * Install Python dependencies. We use python 3.8.5 and pytorch 1.7.1
@@ -43,15 +45,21 @@ python prepare_dataset.py --data_path './datas/part_B_final'
 
 
 ## Training
+E-PFSNet is trained in two stages.
+
+1. Training PFSNet which is a counting network. 
+
 Run the following commands to launch training PFSNet:
 ```
 python main.py --data_path './datas/part_B_final' --save_path './save' --learning_rate 5e-5 --level_counting_loss_ratio 0.5 
 ```
+
+2. Training image enhancer with trained PFSNet whose learnable parameters are frozen.
+
 Run the following commands to launch training Image Enhancer:
 ```
 python main.py --data_path './datas/part_B_final' --save_path './save' --enhancer 'yes' --model_path './models/PFSNet_PartB.pth' --learning_rate 5e-5 --repeat 10
 ```
-
 
 ## Testing
 Run the following commands to launch inference:
