@@ -40,24 +40,6 @@ class SPP(torch.nn.Module):
         x = torch.cat([x1, x2, x3], dim=1)
         return x
 
-class AverageMeter(object):
-    """Computes and stores the average and current value"""
-
-    def __init__(self):
-        self.reset()
-
-    def reset(self):
-        self.cur_val = 0
-        self.avg = 0
-        self.sum = 0
-        self.count = 0
-
-    def update(self, cur_val):
-        self.cur_val = cur_val
-        self.sum += cur_val
-        self.count += 1
-        self.avg = self.sum / self.count
-
 def get_args_parser():
     # define the argparse for the script
     parser = argparse.ArgumentParser('Inference setting', add_help=False)
