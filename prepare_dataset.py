@@ -90,7 +90,7 @@ if __name__ == '__main__':
         for img_path in files:
             if img_path.endswith('.jpg'):
                 img_paths.append(os.path.join(root, img_path))
-     or img_path in img_paths:
+    for img_path in img_paths:
         print(img_path)
         gt_path = img_path.replace('.jpg', '.txt')
         gt = []
